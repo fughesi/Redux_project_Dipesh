@@ -9,7 +9,7 @@ const Header = () => {
         <div className="logo">Movie App</div>
       </Link>
 
-      <div className="useImage">
+      <div className="userImage">
         <img src={user} alt="user" />
       </div>
     </main>
