@@ -1,0 +1,29 @@
+@import "../src/common/colors";
+
+body {
+  font-family: oswald, sans-serif;
+  background-color: $primary-color;
+  color: $font-primary;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  border-bottom: 1ps solid red;
+  transition: 1000ms;
+}
+
+.container {
+  margin: 0 40px;
+}

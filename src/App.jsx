@@ -4,7 +4,7 @@ import Header from "./components/header/Header";
 import MovieDetails from "./components/movieDetails/MovieDetails";
 import Home from "./components/home/Home";
 import PageNotFound from "./components/404/404";
-import "./App.sass";
+import "./App.scss";
 
 function App() {
   return (
