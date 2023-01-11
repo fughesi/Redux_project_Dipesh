@@ -7,8 +7,15 @@ export const fetchAsyncMovies = createAsyncThunk("movies/fetchAsyncMovies", asyn
   return res.data;
 });
 
+export const fetchAsyncShows = createAsyncThunk("movies/fetchAsyncShows", async () => {
+  const seriesText = "Friends";
+  const res = await movieApi.get(`?apikey=${import.meta.env.VITE_API_KEY}&s=${seriesText}&type=series`);
+  return res.data;
+});
+
 const initialState = {
   movies: {},
+  shows: {},
 };
 
 const movieSlice = createSlice({
@@ -23,16 +30,21 @@ const movieSlice = createSlice({
     [fetchAsyncMovies.pending]: () => {
       console.log("Pending");
     },
-    [fetchAsyncMovies.fulfilled]: (state, payload) => {
-      console.log("success");
+    [fetchAsyncMovies.fulfilled]: (state, { payload }) => {
+      console.log("Success");
       return { ...state, movies: payload };
     },
     [fetchAsyncMovies.rejected]: () => {
-      console.log("rejected");
+      console.log("Rejected");
+    },
+    [fetchAsyncShows.fulfilled]: (state, { payload }) => {
+      console.log("Success");
+      return { ...state, shows: payload };
     },
   },
 });
 
 export const { addMovies } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
+export const getAllShows = (state) => state.movies.shows;
 export default movieSlice.reducer;
