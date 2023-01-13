@@ -1,14 +1,39 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchAsyncMovies, fetchAsyncShows } from "../../features/movies/movieSlice";
 import user from "../../images/user.png";
-import "./Header.sass";
+import "./Header.scss";
 
 const Header = () => {
+  const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
+
   return (
     <main className="header">
-      <Link to="/">
-        <div className="logo">Movie App</div>
-      </Link>
-
+      <div className="logo">
+        <Link to="/">
+          <span>Movie App</span>
+        </Link>
+      </div>
+      <div className="searchBar">
+        <form
+          onSubmit={(e) => (
+            e.preventDefault(), dispatch(fetchAsyncMovies(search)), fetchAsyncShows(search), setSearch("")
+          )}
+        >
+          <input
+            type="text"
+            className="searchfield"
+            value={search}
+            placeholder="Search..."
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button className="searchSubmit" onClick={() => console.log("clicked")}>
+            Submit
+          </button>
+        </form>
+      </div>
       <div className="userImage">
         <img src={user} alt="user" />
       </div>

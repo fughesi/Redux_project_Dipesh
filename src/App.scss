@@ -1,4 +1,4 @@
-@import "../src/common/colors";
+@import "../src/common/colors.scss";
 
 body {
   font-family: oswald, sans-serif;
@@ -22,8 +22,4 @@ a {
 a:hover {
   border-bottom: 1ps solid red;
   transition: 1000ms;
-}
-
-.container {
-  margin: 0 40px;
 }

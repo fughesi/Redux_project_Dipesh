@@ -1,4 +1,4 @@
-@import "../../common/colors";
+@import "../../common/colors.scss";
 
 .movieList {
   margin: 20px 0;
@@ -9,8 +9,13 @@
   }
 }
 
-.movieContainer {
+// .movieContainer {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+//   grid-gap: 1rem;
+// }
+.renderError {
+  width: 100vw;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  grid-gap: 1rem;
+  place-items: center;
 }

@@ -1,5 +1,7 @@
+import "./404.scss";
+
 const PageNotFound = () => {
-  return <div>Page not found, muthafucka</div>;
+  return <div className="notFound">Page not found!!</div>;
 };
 
 export default PageNotFound;
