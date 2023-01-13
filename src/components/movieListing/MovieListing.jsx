@@ -16,8 +16,7 @@ export const MovieListing = () => {
         return <MovieCard key={index} data={movie} />;
       })
     ) : (
-      // {shows.Error},
-      <div className="renderError"> Please enter a Movie or Show title in the search bar above</div>
+      <div className="renderError">{movies?.Error}</div>
     );
 
   const renderedShows =
@@ -26,8 +25,7 @@ export const MovieListing = () => {
         return <MovieCard key={index} data={show} />;
       })
     ) : (
-      // {shows.Error},
-      <div className="renderError"> Please enter a Movie or Show title in the search bar above</div>
+      <div className="renderError">{shows?.Error}</div>
     );
 
   let content = (

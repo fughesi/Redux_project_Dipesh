@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fetchAsyncMovies, fetchAsyncShows } from "../../features/movies/movieSlice";
 import user from "../../images/user.png";
 import "./Header.scss";
@@ -8,6 +8,7 @@ import "./Header.scss";
 const Header = () => {
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <main className="header">
@@ -19,7 +20,11 @@ const Header = () => {
       <div className="searchBar">
         <form
           onSubmit={(e) => (
-            e.preventDefault(), dispatch(fetchAsyncMovies(search)), fetchAsyncShows(search), setSearch("")
+            e.preventDefault(),
+            dispatch(fetchAsyncMovies(search)),
+            dispatch(fetchAsyncShows(search)),
+            setSearch(""),
+            navigate("/")
           )}
         >
           <input
